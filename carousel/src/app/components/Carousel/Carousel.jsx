@@ -47,6 +47,8 @@ export default class Carousel extends Component {
         }
       ]
     };
+
+    this._advanceSlides = this._advanceSlides.bind(this)
   }
 
   componentDidMount() {
@@ -66,9 +68,15 @@ export default class Carousel extends Component {
     return [...remainingSlides, firstSlide];
   }
 
+  _advanceSlides() {
+    this.setState({
+      slides: this._getNextSlideOrder()
+    });
+  }
+
   render() {
     return (
-      <div className="carousel" onClick={this._getNextSlideOrder}>
+      <div className="carousel" onClick={this._advanceSlides}>
         <Slide data={this.state.slides[0]} slideDurationMs={5000} />
       </div>
     );

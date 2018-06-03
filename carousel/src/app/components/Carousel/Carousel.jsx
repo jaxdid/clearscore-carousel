@@ -22,19 +22,28 @@ export default class Carousel extends Component {
           className: 'credit-score',
           top: 'Your credit score is',
           middle: score,
-          bottom: `out of ${maxScoreValue}` 
+          bottom: `out of ${maxScoreValue}`,
+          arcDetails: {
+            color: '#f7df71',
+            percentage: Math.round((score / maxScoreValue) * 100)
+          }
         },
         {
           className: 'long-term-debt',
           top: 'Your long term debt total',
           middle: decorateMoneyValue(currentLongTermDebt),
-          bottom: `Total credit limit ${currentLongTermCreditLimit || 0}`
+          bottom: `Total credit limit ${currentLongTermCreditLimit || 0}`,
+          arcDetails: null
         },
         {
           className: 'next-report-delta',
           top: 'Your next report is in',
           middle: daysUntilNextReport,
-          bottom: 'Days'
+          bottom: 'Days',
+          arcDetails: {
+            color: '#89bcdb',
+            percentage: Math.ceil((daysUntilNextReport / 30) * 100)
+          }
         }
       ]
     };
@@ -59,7 +68,7 @@ export default class Carousel extends Component {
 
   render() {
     return (
-      <div className="carousel">
+      <div className="carousel" onClick={this._getNextSlideOrder}>
         <Slide data={this.state.slides[0]} slideDurationMs={5000} />
       </div>
     );

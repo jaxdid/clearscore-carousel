@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Slide from '../Slide/Slide';
 
 import './carousel.scss';
 
@@ -55,7 +56,7 @@ export default class Carousel extends Component {
   render() {
     return (
       <div className="carousel">
-        {this.state.slides[0].middle}
+        <Slide content={this.state.slides[0]} />
       </div>
     );
   }

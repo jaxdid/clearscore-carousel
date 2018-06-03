@@ -1,11 +1,13 @@
 import React from 'react';
 
+import './slide.scss';
+
 export default function Slide({ content }) {
   return (
     <div className="slide">
-      <p>{content.top}</p>
-      <h1>{content.middle}</h1>
-      <p>{content.bottom}</p>
+      <div className="top">{content.top}</div>
+      <div className="middle">{content.middle}</div>
+      <div className="bottom">{content.bottom}</div>
     </div>
   );
 }

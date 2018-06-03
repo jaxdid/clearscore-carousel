@@ -1,0 +1,45 @@
+.slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  transform: translateX(375px);
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  opacity: 1;
+  animation: slide 5s ease-in 0s infinite;
+
+  .top,
+  .bottom {
+    font-size: 1.33em;
+  }
+
+  .middle {
+    margin: 20px 0;
+    font-size: 4em;
+  }
+
+  .bottom {
+
+  }
+}
+
+@keyframes slide {
+  10% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  90% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-375px);
+    opacity: 0;
+  }
+}

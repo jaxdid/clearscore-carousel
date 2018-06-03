@@ -15,3 +15,7 @@ const getLocalUrl = () => {
 };
 
 export const localUrl = getLocalUrl();
+
+export function decorateMoneyValue(value) {
+  return `£${Number(value).toLocaleString()}`
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Slide from '../Slide/Slide';
+import { decorateMoneyValue } from '../../utils'
 
 import './carousel.scss';
 
@@ -24,8 +25,8 @@ export default class Carousel extends Component {
         },
         {
           top: 'Your long term debt total',
-          middle: currentLongTermDebt,
-          bottom: `Total credit limit ${currentLongTermCreditLimit}`
+          middle: decorateMoneyValue(currentLongTermDebt),
+          bottom: `Total credit limit ${currentLongTermCreditLimit || 0}`
         },
         {
           top: 'Your next report is in',

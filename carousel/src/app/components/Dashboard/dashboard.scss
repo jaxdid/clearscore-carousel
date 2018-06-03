@@ -1,4 +1,9 @@
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
   background: no-repeat top;
   background-size: cover;
   background-image: url('/background--dashboard.png');

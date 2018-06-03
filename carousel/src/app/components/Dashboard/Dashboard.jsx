@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Carousel from '../Carousel/Carousel';
 import { getJSON } from '../../utils/fetch';
 
 import './dashboard.scss';
@@ -14,18 +15,14 @@ export default class Dashboard extends Component {
 
   getUserData() {
     return getJSON('https://s3.amazonaws.com/cdn.clearscore.com/native/interview_test/creditReportInfo.json')
-      .then(resp => this.setState({userData: resp.creditReportInfo}));
+      .then(resp => this.setState({userData: resp}));
   }
 
   render() {
-    if (!this.state.userData) {
-      return null;
-    }
+    const { creditReportInfo } = this.state.userData;
 
-    return (
-      <div>
-        {this.state.userData.score}
-      </div>
-    );
+    return creditReportInfo
+      ? <Carousel data={creditReportInfo} slideDurationMs={5000} />
+      : null;
   }
 }

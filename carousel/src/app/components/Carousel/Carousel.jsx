@@ -19,16 +19,19 @@ export default class Carousel extends Component {
     this.state = {
       slides: [
         {
+          className: 'credit-score',
           top: 'Your credit score is',
           middle: score,
           bottom: `out of ${maxScoreValue}` 
         },
         {
+          className: 'long-term-debt',
           top: 'Your long term debt total',
           middle: decorateMoneyValue(currentLongTermDebt),
           bottom: `Total credit limit ${currentLongTermCreditLimit || 0}`
         },
         {
+          className: 'next-report-delta',
           top: 'Your next report is in',
           middle: daysUntilNextReport,
           bottom: 'Days'
@@ -57,7 +60,7 @@ export default class Carousel extends Component {
   render() {
     return (
       <div className="carousel">
-        <Slide content={this.state.slides[0]} />
+        <Slide data={this.state.slides[0]} />
       </div>
     );
   }

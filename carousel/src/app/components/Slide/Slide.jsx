@@ -2,12 +2,12 @@ import React from 'react';
 
 import './slide.scss';
 
-export default function Slide({ content }) {
+export default function Slide({ data }) {
   return (
-    <div className="slide">
-      <div className="top">{content.top}</div>
-      <div className="middle">{content.middle}</div>
-      <div className="bottom">{content.bottom}</div>
+    <div className={`slide ${data.className}`}>
+      <div className="top">{data.top}</div>
+      <div className="middle">{data.middle}</div>
+      <div className="bottom">{data.bottom}</div>
     </div>
   );
 }

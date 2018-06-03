@@ -1,3 +1,7 @@
+$creditScore: #f7df71;
+$longTermDebt: #dfb7f6;
+$nextReportDelta: #89bcdb;
+
 .slide {
   display: flex;
   flex-direction: column;
@@ -19,11 +23,26 @@
 
   .middle {
     margin: 20px 0;
-    font-size: 4em;
+    font-size: 5em;
   }
+}
 
+.credit-score {
+  .middle {
+    color: $creditScore;
+  }
+}
+
+.long-term-debt {
+  .middle {
+    color: $longTermDebt;
+  }
+}
+
+.next-report-delta {
+  .middle,
   .bottom {
-
+    color: $nextReportDelta;
   }
 }
 

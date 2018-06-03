@@ -14,7 +14,9 @@ $nextReportDelta: #89bcdb;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   opacity: 1;
-  animation: slide 5s ease-in 0s infinite;
+  animation-name: slide;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
 
   .top,
   .bottom {

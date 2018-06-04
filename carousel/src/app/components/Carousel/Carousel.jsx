@@ -9,51 +9,51 @@ export default class Carousel extends Component {
     super(props);
 
     this.state = {
-      slides: this.props.slides
+      slides: this.props.slides,
     };
 
-    this._advanceSlides = this._advanceSlides.bind(this)
+    this.advanceSlides = this.advanceSlides.bind(this);
   }
 
   componentDidMount() {
-    this._animation = setInterval(
-      this._advanceSlides,
-      this.props.slideDurationMs
+    this.animation = setInterval(
+      this.advanceSlides,
+      this.props.slideDurationMs,
     );
   }
 
   componentWillUnmount() {
-    clearInterval(this._animation);
+    clearInterval(this.animation);
   }
 
-  _getNextSlideOrder() {
+  getNextSlideOrder() {
     const [firstSlide, ...remainingSlides] = this.state.slides;
     return [...remainingSlides, firstSlide];
   }
 
-  _advanceSlides() {
+  advanceSlides() {
     this.setState({
-      slides: this._getNextSlideOrder()
+      slides: this.getNextSlideOrder(),
     });
   }
 
   render() {
     return (
-      <div className="carousel" onClick={this._advanceSlides}>
+      <button className="carousel" onClick={this.advanceSlides}>
         <Slide
           data={this.state.slides[0]}
           slideDurationMs={this.props.slideDurationMs}
         />
-      </div>
+      </button>
     );
   }
 }
 
 Carousel.propTypes = {
-  slides: PropTypes.array.isRequired,
-  slideDurationMs: PropTypes.number
-}
+  slides: PropTypes.arrayOf(PropTypes.object).isRequired,
+  slideDurationMs: PropTypes.number,
+};
 
 Carousel.defaultProps = {
-  slideDurationMs: 5500
-}
+  slideDurationMs: 5500,
+};

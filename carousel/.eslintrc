@@ -1,0 +1,8 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "plugins": ["import", "react"],
+  "rules": {
+    "jsx-a11y/click-events-have-key-events": 0
+  }
+}

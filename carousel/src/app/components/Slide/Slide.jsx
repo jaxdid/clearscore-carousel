@@ -4,34 +4,7 @@ import Circle from 'react-circle';
 
 import './slide.scss';
 
-export default function Slide({ data, slideDurationMs }) {
-  const {
-    className,
-    arcDetails,
-    top,
-    middle,
-    bottom
-  } = data;
-  
-  return (
-    <div
-      className={`slide ${className}`}
-      style={{ animationDuration: `${slideDurationMs}ms` }}
-    >
-      {arcDetails ? _renderArc(arcDetails) : null}
-      <div className="top">{top}</div>
-      <div className="middle">{middle}</div>
-      <div className="bottom">{bottom}</div>
-    </div>
-  );
-}
-
-Slide.propTypes = {
-  data: PropTypes.object.isRequired,
-  slideDurationMs: PropTypes.number.isRequired
-}
-
-function _renderArc({ percentage, color }) {
+function renderArc({ percentage, color }) {
   return (
     <Circle
       className="arc"
@@ -45,3 +18,35 @@ function _renderArc({ percentage, color }) {
     />
   );
 }
+
+renderArc.propTypes = {
+  percentage: PropTypes.number.isRequired,
+  color: PropTypes.string.isRequired,
+};
+
+export default function Slide({ data, slideDurationMs }) {
+  const {
+    className,
+    arcDetails,
+    top,
+    middle,
+    bottom,
+  } = data;
+
+  return (
+    <div
+      className={`slide ${className}`}
+      style={{ animationDuration: `${slideDurationMs}ms` }}
+    >
+      {arcDetails ? renderArc(arcDetails) : null}
+      <div className="top">{top}</div>
+      <div className="middle">{middle}</div>
+      <div className="bottom">{bottom}</div>
+    </div>
+  );
+}
+
+Slide.propTypes = {
+  data: PropTypes.objectOf(PropTypes.node).isRequired,
+  slideDurationMs: PropTypes.number.isRequired,
+};

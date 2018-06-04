@@ -10,23 +10,23 @@ export default class Dashboard extends Component {
     super();
 
     this.state = {
-      userData: this.getUserData()
+      userData: this.getUserData(),
     };
   }
 
   getUserData() {
     return getJSON('https://s3.amazonaws.com/cdn.clearscore.com/native/interview_test/creditReportInfo.json')
-      .then(resp => this.setState({userData: resp}));
+      .then(resp => this.setState({ userData: resp }));
   }
 
-  _getSlides(creditReportInfo) {
+  getSlides() {
     const {
       score,
       maxScoreValue,
       currentLongTermDebt,
       currentLongTermCreditLimit,
-      daysUntilNextReport
-    } = creditReportInfo;
+      daysUntilNextReport,
+    } = this.state.userData.creditReportInfo;
 
     return [
       {
@@ -36,15 +36,15 @@ export default class Dashboard extends Component {
         bottom: `out of ${maxScoreValue}`,
         arcDetails: {
           color: '#f7df71',
-          percentage: Math.round((score / maxScoreValue) * 100)
-        }
+          percentage: Math.round((score / maxScoreValue) * 100),
+        },
       },
       {
         className: 'long-term-debt',
         top: 'Your long term debt total',
         middle: decorateMoneyValue(currentLongTermDebt),
         bottom: `Total credit limit ${currentLongTermCreditLimit || 0}`,
-        arcDetails: null
+        arcDetails: null,
       },
       {
         className: 'next-report-delta',
@@ -53,17 +53,15 @@ export default class Dashboard extends Component {
         bottom: 'Days',
         arcDetails: {
           color: '#89bcdb',
-          percentage: Math.ceil((daysUntilNextReport / 30) * 100)
-        }
-      }
-    ]
+          percentage: Math.ceil((daysUntilNextReport / 30) * 100),
+        },
+      },
+    ];
   }
 
   render() {
-    const { creditReportInfo } = this.state.userData
-
-    return creditReportInfo
-      ? <Carousel slides={this._getSlides(creditReportInfo)} slideDurationMs={5500} />
+    return this.state.userData.creditReportInfo
+      ? <Carousel slides={this.getSlides()} slideDurationMs={5500} />
       : null;
   }
 }

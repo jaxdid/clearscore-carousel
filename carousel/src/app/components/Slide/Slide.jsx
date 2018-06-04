@@ -34,6 +34,7 @@ Slide.propTypes = {
 function _renderArc({ percentage, color }) {
   return (
     <Circle
+      className="arc"
       progress={percentage < 100 ? percentage : 100}
       size={440}
       lineWidth={6}

@@ -77,7 +77,10 @@ export default class Carousel extends Component {
   render() {
     return (
       <div className="carousel" onClick={this._advanceSlides}>
-        <Slide data={this.state.slides[0]} slideDurationMs={5000} />
+        <Slide
+          data={this.state.slides[0]}
+          slideDurationMs={this.props.slideDurationMs}
+        />
       </div>
     );
   }

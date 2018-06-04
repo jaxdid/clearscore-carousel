@@ -22,7 +22,7 @@ export default class Dashboard extends Component {
     const { creditReportInfo } = this.state.userData;
 
     return creditReportInfo
-      ? <Carousel data={creditReportInfo} slideDurationMs={5000} />
+      ? <Carousel data={creditReportInfo} slideDurationMs={5500} />
       : null;
   }
 }

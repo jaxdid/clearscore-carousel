@@ -33,7 +33,7 @@ function _renderArc({ percentage, color }) {
       lineWidth={6}
       progressColor={color}
       bgColor="transparent"
-      animationDuration={3}
+      animate={false}
       showPercentage={false}
     />
   );

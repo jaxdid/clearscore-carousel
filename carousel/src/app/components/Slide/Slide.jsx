@@ -28,11 +28,7 @@ export default function Slide({ data, slideDurationMs }) {
 
 Slide.propTypes = {
   data: PropTypes.object.isRequired,
-  slideDurationMs: PropTypes.number
-}
-
-Slide.defaultProps = {
-  slideDurationMs: 5500
+  slideDurationMs: PropTypes.number.isRequired
 }
 
 function _renderArc({ percentage, color }) {

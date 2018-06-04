@@ -1,37 +1,38 @@
-![ClearScore](https://github.com/ClearScore/tech-screen/blob/master/assets/clearscore.png)
+# ClearScore Score Indicator Carousel
 
-# Tech-screen
+A simple dashboard featuring an animated carousel that displays information about a test user's credit score report.
 
-This repo contains multiple apps.  The concept is to enable developers to pick and choose which tech problem(s) they would like to solve.
-  
-But first, a little bit about us...
+## Setup
+##### Prerequisites
+* Node version >= 9.3.0
+* Yarn is used as the package manager
 
-## About ClearScore
+#### Running locally
+* Clone or download this project
+* Enter `cd clearscore-score-indicator-carousel/carousel` to navigate to the core project directory
+* Enter `yarn start:webpack`
+* In a new terminal window/tab, enter: `yarn start:dev`
+* In your browser, go to: `http://localhost:3000/`
 
-At ClearScore we are not limited to the technology stack we can use. Our systems evolve quickly and choosing the right tools for the job is an important factor within our development cycle.
+#### Tests
+* Enter `yarn test` to run all tests (also supports watch mode: `yarn test --watch`)
 
-We are currently working with...
- * ES6 and ES7 throughout the codebase
- * React with Redux (Some legacy apps used Angular, but this is being phased out)
- * Isomorphic / Universal SPA
- * PostCSS + CSS-modules for styling (legacy apps use SASS and BEM)
- * MEN (Mongo, Express, Node) stack websites
- * We build using the Webpack module bundler and Lerna package manager
- * Jest + Enzyme for Unit testing
- * We currently support the latest 2 versions of Edge, Chrome, Firefox and Safari (plus ie11)
+## Improvements
+* Determine how to time the animation of slide arcs so that they are drawn when their slide is being displayed
+* Add a bouncing effect to the end of the animation of the arc
+* Add bidirectional slide navigation
 
-## What we're looking for
+## Thoughts
+Having built carousels in jQuery, it was really enjoyable to apply React features and component-based thinking to solving a classic UI problem in a novel way. I do wonder if the design model of having a single running animation mapped over synchronized reordering of slides is scalable, particularly with regard to timing other simultaneous animations (such as the drawing of arcs).
 
- * A stylish solution with unit test coverage
- * Clean, concise code
- * A detailed README
- * A live site we can see (if possible) 
+Separately, being able to click to advance to the next slide is a useful feature, but feels incomplete without the able to navigate through slides bidirectionally.
 
-## Apps
+## Technologies
+* React
+* ES6
+* SCSS
+* Jest + Enzyme
+* ESLint (Airbnb)
 
- > Each app contains 1 (or more) tech challenge(s). Please pick and choose one or more to complete.
-
- * [Carousel](/carousel) \[4 hours] \[Front-end] \[React]
-   * A Front-end focused app which requires a new carousel
- * ...
-
+## Acknowledgements
+Thanks to all the contributors of [react-circle](https://github.com/zzarcon/react-circle) for creating such a clean solution for drawing circles with SVG!

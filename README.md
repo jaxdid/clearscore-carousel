@@ -1,9 +1,9 @@
-# ClearScore Score Indicator Carousel
+# ClearScore Carousel
 
 A simple dashboard featuring an animated carousel that displays information about a test user's credit score report.
 
-## Setup
-##### Prerequisites
+### 🌱 Setup
+#### Prerequisites
 * Node version >= 9.3.0
 * Yarn is used as the package manager
 
@@ -17,22 +17,22 @@ A simple dashboard featuring an animated carousel that displays information abou
 #### Tests
 * Enter `yarn test` to run all tests (also supports watch mode: `yarn test --watch`)
 
-## Improvements
+### 🚧 Improvements
 * Determine how to time the animation of slide arcs so that they are drawn when their slide is being displayed
 * Add a bouncing effect to the end of the animation of the arc
 * Add bidirectional slide navigation
 
-## Thoughts
+### 🤔 Thoughts
 Having built carousels in jQuery, it was really enjoyable to apply React features and component-based thinking to solving a classic UI problem in a novel way. I do wonder if the design model of having a single running animation mapped over synchronized reordering of slides is scalable, particularly with regard to timing other simultaneous animations (such as the drawing of arcs).
 
 Separately, being able to click to advance to the next slide is a useful feature, but feels incomplete without the able to navigate through slides bidirectionally.
 
-## Technologies
+### ✨ Technologies
 * React
 * ES6
 * SCSS
 * Jest + Enzyme
 * ESLint (Airbnb)
 
-## Acknowledgements
+### 🙏 Acknowledgements
 Thanks to all the contributors of [react-circle](https://github.com/zzarcon/react-circle) for creating such a clean solution for drawing circles with SVG!

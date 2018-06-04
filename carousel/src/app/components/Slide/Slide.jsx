@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Circle from 'react-circle';
 
 import './slide.scss';
@@ -23,6 +24,15 @@ export default function Slide({ data, slideDurationMs }) {
       <div className="bottom">{bottom}</div>
     </div>
   );
+}
+
+Slide.propTypes = {
+  data: PropTypes.object.isRequired,
+  slideDurationMs: PropTypes.number
+}
+
+Slide.defaultProps = {
+  slideDurationMs: 5500
 }
 
 function _renderArc({ percentage, color }) {

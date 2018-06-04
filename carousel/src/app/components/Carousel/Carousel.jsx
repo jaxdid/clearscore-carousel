@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Slide from '../Slide/Slide';
 
 import './carousel.scss';
@@ -46,4 +47,13 @@ export default class Carousel extends Component {
       </div>
     );
   }
+}
+
+Carousel.propTypes = {
+  slides: PropTypes.array.isRequired,
+  slideDurationMs: PropTypes.number
+}
+
+Carousel.defaultProps = {
+  slideDurationMs: 5500
 }

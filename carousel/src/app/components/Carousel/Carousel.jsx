@@ -15,11 +15,10 @@ export default class Carousel extends Component {
   }
 
   componentDidMount() {
-    this._animation = setInterval(() => {
-      this.setState({
-        slides: this._getNextSlideOrder()
-      });
-    }, this.props.slideDurationMs);
+    this._animation = setInterval(
+      this._advanceSlides,
+      this.props.slideDurationMs
+    );
   }
 
   componentWillUnmount() {

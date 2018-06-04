@@ -47,6 +47,12 @@ export default function Slide({ data, slideDurationMs }) {
 }
 
 Slide.propTypes = {
-  data: PropTypes.objectOf(PropTypes.node).isRequired,
+  data: PropTypes.shape({
+    className: PropTypes.string,
+    top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    middle: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    bottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    arcDetails: PropTypes.object,
+  }).isRequired,
   slideDurationMs: PropTypes.number.isRequired,
 };
